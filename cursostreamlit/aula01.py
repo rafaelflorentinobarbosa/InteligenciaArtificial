@@ -18,7 +18,9 @@ if st.button("todos"):
     st.balloons()
         
     def muda_valor(valor):
-        if valor >= 1000000:
+        if valor == 1000000:
+            return f" {valor/1000000:.1f} milhão"
+        elif valor > 1000000:
             return f" {valor/1000000:.1f} milhões"
         elif valor >= 1000:
             return f" {valor/1000:.1f} mil"
