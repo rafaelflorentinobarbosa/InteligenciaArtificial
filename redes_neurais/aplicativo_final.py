@@ -34,10 +34,16 @@ with mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence
         2 - o process - processar os dados
         3 - face_landmarks - (Cordenadas)
         """
-        for face_landmarks in saida_facemesh.multi_face_landmarks:
-            # Desenhar
-            mp_drawing.draw_landmarks(frame,face_landmarks,mp_face_mesh.FACEMESH_COUNTOURS)
         
+        try:
+            for face_landmarks in saida_facemesh.multi_face_landmarks:
+                # Desenhar
+                mp_drawing.draw_landmarks(frame,face_landmarks,mp_face_mesh.FACEMESH_COUNTOURS)
+        except:
+            print("Algo deu errado")
+        finally:
+            print("Encerrando o processo")
+            
         # Carregar nosso frame - com titulo
         cv2.imshow('Camera', frame)
         # bitwise - tabela ASC II
