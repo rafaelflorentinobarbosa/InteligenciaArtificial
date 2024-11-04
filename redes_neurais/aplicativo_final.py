@@ -38,7 +38,12 @@ with mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence
         try:
             for face_landmarks in saida_facemesh.multi_face_landmarks:
                 # Desenhar
-                mp_drawing.draw_landmarks(frame,face_landmarks,mp_face_mesh.FACEMESH_COUNTOURS)
+                mp_drawing.draw_landmarks(frame,
+                                            face_landmarks,
+                                            mp_face_mesh.FACEMESH_COUNTOURS,
+                                            landmark_drawing_spec = mp_drawing.DrawingSpec(color=(255,102,102),thickness=1, circle_radius=1),
+                                            connection_drawing_spec = mp_drawing.DrawingSpec(color=(102,204,0),thickness=1, circle_radius=1))
+                
         except:
             print("Algo deu errado")
         finally:
