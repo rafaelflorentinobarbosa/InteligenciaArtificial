@@ -14,12 +14,19 @@ import numpy as np
 p_olho_esq = [385, 380, 387, 373, 362, 263]
 p_olho_dir = [160, 144, 158, 153, 33, 133]
 
-# Funcção EAR
+# Funcção  que calcula EAR
 def calculo_ear(face, p_olho_dir, p_olho_esq):
-        # FIXME: List comprehension
-        # [[]] - lista dentro de outra lista
+    # FIXME: List comprehension
+    # [[]] - lista dentro de outra lista
+    # tente
     try:    
+        # 1 - face é uma variável que vai resceber as cordenadas
+        # 2 - np.array()
+        # 3 - List comprehension - for
+        # 4 - face (numpy) --- in face (mediapipe)
+        
         face = np.array([[coord.x, coord.y] for coord in face])
+        # matriz (array) Linhas e colunas
         face_esq = face[p_olho_esq, :]
         face_dir = face[p_olho_dir, :]
         
@@ -31,8 +38,6 @@ def calculo_ear(face, p_olho_dir, p_olho_esq):
         
     media_ear = (ear_esq + ear_dir) / 2
     return media_ear
-
-
 
 
 #criar uma variável para camera
@@ -83,6 +88,14 @@ with mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence
                 connection_drawing_spec = mp_drawing.DrawingSpec(color=(102,204,0),thickness=1,circle_radius=1))
                 
             #FIXME: Normalização para pixel
+            
+
+            # face = face_landmarks.landmark
+            # for id_coord, coord_xyz in enumerate(face): .
+            #     if id_coord in p_olhos:
+            #         coord_cv = mp_drawing._normalized_to_pixel_coord
+            #         cv2.circle(frame,coord_cv,2,(255,0,0), -1)
+
             
             #FIXME: Chamada do EAR e print
 
