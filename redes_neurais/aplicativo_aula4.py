@@ -93,11 +93,21 @@ with mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence
             # face = face_landmarks.landmark
             # for id_coord, coord_xyz in enumerate(face): .
             #     if id_coord in p_olhos:
-            #         coord_cv = mp_drawing._normalized_to_pixel_coord
+            #         coord_cv = mp_drawing._normalized_to_pixel_coordinates
             #         cv2.circle(frame,coord_cv,2,(255,0,0), -1)
+            
 
             
             #FIXME: Chamada do EAR e print
+            
+            # mostrando o EAR na tela
+            #  cv2.rectangle(frame, (0,1),(290,140),(58,58,55),-1)
+            #                 cv2.putText(frame, f"EAR: {round(ear, 2)}", (1, 24),
+            #                                 cv2.FONT_HERSHEY_DUPLEX,
+            #                                 0.9, (255, 255, 255), 2)
+
+            # {documentação do OpenCV}
+            # https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html
 
         except:
             print("algo deu errado")
